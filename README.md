@@ -1,3 +1,14 @@
+# [react](http://facebook.github.io/react/)-recaptcha
+
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+[![Build Status](https://travis-ci.org/twobucks/react-gcaptcha.svg)](https://travis-ci.org/twobucks/react-gcaptcha)
+[![devDependency Status](https://david-dm.org/twobucks/react-gcaptcha/dev-status.svg)](https://david-dm.org/twobucks/react-gcaptcha#info=devDependencies)
+
+[![NPM](https://nodei.co/npm/react-gcaptcha.png?downloads=true&stars=true)](https://nodei.co/npm/react-gcaptcha/)
+
+[npm-url]: https://www.npmjs.com/package/react-gcaptcha
+[npm-image]: http://img.shields.io/npm/v/react-gcaptcha.svg
+[downloads-image]: http://img.shields.io/npm/dm/react-gcaptcha.svg
 # [react](http://facebook.github.io/react/)-gcaptcha
 
 A [react.js](http://facebook.github.io/react/) reCAPTCHA for Google. The FREE anti-abuse service. Easy to add, advanced security, accessible to wide range of users and platforms.
@@ -79,6 +90,7 @@ React.render(
 
 ## TODO
 * Add auto language detection
+* Improve tests
 
 ## License
 MIT © Two Bucks ltd.
