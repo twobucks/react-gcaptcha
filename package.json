@@ -1,0 +1,38 @@
+{
+  "name": "react-gcaptcha",
+  "version": "0.9.0",
+  "description": "A react.js google reCAPTCHA component",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "jsx src dist",
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testPathDirs": [
+      "./__tests__/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twobucks/react-gcaptcha"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "reCAPTCHA",
+    "component"
+  ],
+  "author": "Dino Trojak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twobucks/react-gcaptcha/issues"
+  },
+  "homepage": "https://github.com/twobucks/react-gcaptcha",
+  "devDependencies": {
+    "babel-jest": "^5.3.0",
+    "eslint-plugin-react": "^3.3.2",
+    "jest-cli": "^0.5.4",
+    "react": "^0.13.3"
+  }
+}
