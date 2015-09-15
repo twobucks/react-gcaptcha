@@ -34,5 +34,8 @@
     "eslint-plugin-react": "^3.3.2",
     "jest-cli": "^0.5.4",
     "react-tools": "^0.13.3"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
   }
 }
