@@ -14,5 +14,6 @@ describe("Google reCAPTCHA", () => {
   it("should have default props defined", () => {
     expect(recaptcha.props.elementID).toBe("g-recaptcha");
     expect(recaptcha.props.onloadCallback).not.toBeDefined();
+    expect(TestUtils.isCompositeComponent(recaptcha)).toBeTruthy();
   });
 });

@@ -1,37 +1,41 @@
+/*global grecaptcha*/
 "use strict";
 const React = require("react");
-
 const Recaptcha = React.createClass({displayName: "Recaptcha",
   propTypes: {
-    className: React.PropTypes.string,
-    onloadCallbackName: React.PropTypes.string,
+    sitekey: React.PropTypes.string,
     elementID: React.PropTypes.string,
+    onloadCallbackName: React.PropTypes.string,
     onloadCallback: React.PropTypes.func,
     verifyCallback: React.PropTypes.func,
     render: React.PropTypes.string,
-    sitekey: React.PropTypes.string,
     theme: React.PropTypes.string,
     type: React.PropTypes.string,
-    verifyCallbackName: React.PropTypes.string
+    size: React.PropTypes.string,
+    expiredCallback: React.PropTypes.func
   },
   getDefaultProps: function() {
     return {
       elementID: "g-recaptcha",
       onloadCallback: undefined,
-      onloadCallbackName: "onloadCallback",
-      verifyCallbackName: "verifyCallback",
+      onloadCallbackName: "recaptchaLoaded",
       verifyCallback: undefined,
-      render: "onload",
+      expiredCallback: undefined,
+      render: "explicit",
       theme: "light",
-      type: "image"
+      type: "image",
+      size: "normal"
     };
   },
   loadCaptcha: function() {
     grecaptcha.render(this.props.elementID, {
       "sitekey": this.props.sitekey,
       "callback": this.props.verifyCallback,
+      "expired-callback": this.props.expiredCallback,
       "theme": this.props.theme,
-      "type": this.props.type
+      "render": this.props.render,
+      "type": this.props.type,
+      "size": this.props.size
     });
   },
   componentDidMount: function() {

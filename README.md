@@ -1,6 +1,6 @@
 # [react](http://facebook.github.io/react/)-gcaptcha
 
-A [react.js]((http://facebook.github.io/react/) reCAPTCHA for Google. The FREE anti-abuse service. Easy to add, advanced security, accessible to wide range of users and platforms.
+A [react.js](http://facebook.github.io/react/) reCAPTCHA for Google. The FREE anti-abuse service. Easy to add, advanced security, accessible to wide range of users and platforms.
 
 # What is reCAPTCHA?
 
@@ -64,7 +64,7 @@ React.render(
 );
 ```
 
-### All Component properties
+## All Component properties
 
 * `sitekey`required - Google reCAPTCHA site key
 * `elementID`(default `g-recaptcha`) - string to be used as a div ID
@@ -72,10 +72,13 @@ React.render(
 * `onloadCallbackName`(default `recaptchaLoaded`) - name of the global function that will be called after script loads
 * `verifyCallback`- function to be called after successful reCAPTCHA validation
 * `expiredCallback`- function to be called if reCAPTCHA is expired
-* `size`(default `normal`) - it can be `normal` or `dark`
+* `size`(default `normal`) - it can be `normal` or `compact`
 * `theme`(default `light`) - it can be `light` or `dark`
 * `type`(default `image`) - it can be `image` or `audio`
 * `render`(default `explicit`) - Whether to render the widget explicitly. But it can be set to `onload`
+
+## TODO
+* Add auto language detection
 
 ## License
 MIT © Two Bucks ltd.

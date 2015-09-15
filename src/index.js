@@ -12,7 +12,7 @@ const Recaptcha = React.createClass({
     theme: React.PropTypes.string,
     type: React.PropTypes.string,
     size: React.PropTypes.string,
-    expiredCallback: React.PropTypes.string
+    expiredCallback: React.PropTypes.func
   },
   getDefaultProps: function() {
     return {
