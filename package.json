@@ -1,6 +1,6 @@
 {
   "name": "react-gcaptcha",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "A react.js google reCAPTCHA component",
   "main": "dist/index.js",
   "scripts": {
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/twobucks/react-gcaptcha",
   "devDependencies": {
     "babel-jest": "^5.3.0",
+    "eslint": "^1.4.3",
     "eslint-plugin-react": "^3.3.2",
     "jest-cli": "^0.5.4",
     "react-tools": "^0.13.3"
