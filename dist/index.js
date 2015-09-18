@@ -1,7 +1,6 @@
 /*global grecaptcha*/
-"use strict";
-const React = require("react");
-const Recaptcha = React.createClass({displayName: "Recaptcha",
+var React = require("react");
+var Recaptcha = React.createClass({displayName: "Recaptcha",
   propTypes: {
     sitekey: React.PropTypes.string,
     elementID: React.PropTypes.string,
