@@ -1,5 +1,4 @@
 /*global grecaptcha*/
-"use strict";
 var React = require("react");
 var Recaptcha = React.createClass({
   propTypes: {
