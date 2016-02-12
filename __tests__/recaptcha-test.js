@@ -1,13 +1,12 @@
-"use strict";
-jest.dontMock("../src/index");
+jest.dontMock("../src");
 
-var React = require("react/addons");
-var TestUtils = React.addons.TestUtils;
-var Component = require("../src/index");
+import React from "react";
+import ReactDOM from "react-dom";
+import TestUtils from "react-addons-test-utils";
 
+const Recaptcha = require("../src/index");
 describe("Google reCAPTCHA", () => {
-  var recaptcha = null;
-  recaptcha = TestUtils.renderIntoDocument(<Component/>);
+  let recaptcha = TestUtils.renderIntoDocument(<Recaptcha/>);
 
   it("should have default props defined", () => {
     expect(TestUtils.isCompositeComponent(recaptcha)).toBeTruthy();
@@ -20,7 +19,7 @@ describe("Google reCAPTCHA", () => {
   });
 
   it("should change the default props", () => {
-    recaptcha = TestUtils.renderIntoDocument(<Component sitekey="123321" elementID="test" theme="dark" type="audio" size="compact"/>);
+    recaptcha = TestUtils.renderIntoDocument(<Recaptcha sitekey="123321" elementID="test" theme="dark" type="audio" size="compact"/>);
     expect(TestUtils.isCompositeComponent(recaptcha)).toBeTruthy();
     expect(recaptcha.props.elementID).toBe("test");
     expect(recaptcha.props.sitekey).toBe("123321");
@@ -29,4 +28,6 @@ describe("Google reCAPTCHA", () => {
     expect(recaptcha.props.size).toBe("compact");
     expect(recaptcha.props.onloadCallback).not.toBeDefined();
   });
+
+
 });
