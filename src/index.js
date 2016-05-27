@@ -1,7 +1,7 @@
 const React = require("react");
 class Recaptcha extends React.Component {
   constructor(props) {
-    super(null);
+    super(props);
   }
   loadCaptcha() {
     grecaptcha.render(this.props.elementID, {
