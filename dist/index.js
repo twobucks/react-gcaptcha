@@ -16,7 +16,7 @@ var Recaptcha = function (_React$Component) {
   function Recaptcha(props) {
     _classCallCheck(this, Recaptcha);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Recaptcha).call(this, null));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Recaptcha).call(this, props));
   }
 
   _createClass(Recaptcha, [{
