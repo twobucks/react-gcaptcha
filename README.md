@@ -60,7 +60,7 @@ var Recaptcha = require('react-gcaptcha');
 var callback = function (key) {
   console.log(key);
 };
-var loaded = function () {
+var recaptchaLoaded = function () {
   console.log('recaptchaLoaded');
 };
 
