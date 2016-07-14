@@ -2,13 +2,17 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var React = require("react");
 
 var Recaptcha = function (_React$Component) {
   _inherits(Recaptcha, _React$Component);
@@ -16,13 +20,18 @@ var Recaptcha = function (_React$Component) {
   function Recaptcha(props) {
     _classCallCheck(this, Recaptcha);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Recaptcha).call(this, props));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Recaptcha).call(this, props));
+
+    _this.state = {
+      captcha: {}
+    };
+    return _this;
   }
 
   _createClass(Recaptcha, [{
     key: "loadCaptcha",
     value: function loadCaptcha() {
-      grecaptcha.render(this.props.elementID, {
+      var captcha = grecaptcha.render(this.props.elementID, {
         "sitekey": this.props.sitekey,
         "callback": this.props.verifyCallback,
         "expired-callback": this.props.expiredCallback,
@@ -31,6 +40,7 @@ var Recaptcha = function (_React$Component) {
         "type": this.props.type,
         "size": this.props.size
       });
+      this.setState({ captcha: captcha });
     }
   }, {
     key: "componentDidMount",
@@ -49,32 +59,49 @@ var Recaptcha = function (_React$Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
+      this.resetCaptcha();
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.reset) {
+        this.resetCaptcha();
+      }
+    }
+  }, {
+    key: "resetCaptcha",
+    value: function resetCaptcha() {
       if (typeof grecaptcha !== "undefined") {
-        grecaptcha.reset();
+        grecaptcha.reset(this.state.captcha);
+        if (this.props.resetCallback) {
+          this.props.resetCallback();
+        }
       }
     }
   }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", { id: this.props.elementID });
+      return _react2.default.createElement("div", { id: this.props.elementID });
     }
   }]);
 
   return Recaptcha;
-}(React.Component);
+}(_react2.default.Component);
 
 ;
 Recaptcha.propTypes = {
-  sitekey: React.PropTypes.string,
-  elementID: React.PropTypes.string,
-  onloadCallbackName: React.PropTypes.string,
-  onloadCallback: React.PropTypes.func,
-  verifyCallback: React.PropTypes.func,
-  render: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  type: React.PropTypes.string,
-  size: React.PropTypes.string,
-  expiredCallback: React.PropTypes.func
+  sitekey: _react.PropTypes.string,
+  elementID: _react.PropTypes.string,
+  onloadCallbackName: _react.PropTypes.string,
+  onloadCallback: _react.PropTypes.func,
+  verifyCallback: _react.PropTypes.func,
+  render: _react.PropTypes.string,
+  theme: _react.PropTypes.string,
+  type: _react.PropTypes.string,
+  size: _react.PropTypes.string,
+  expiredCallback: _react.PropTypes.func,
+  reset: _react.PropTypes.bool,
+  resetCallback: _react.PropTypes.func
 };
 
 Recaptcha.defaultProps = {
@@ -83,6 +110,8 @@ Recaptcha.defaultProps = {
   onloadCallbackName: "recaptchaLoaded",
   verifyCallback: undefined,
   expiredCallback: undefined,
+  resetCallback: undefined,
+  reset: undefined,
   render: "explicit",
   theme: "light",
   type: "image",

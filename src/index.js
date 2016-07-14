@@ -1,10 +1,13 @@
-const React = require("react");
+import { default as React, PropTypes } from "react";
 class Recaptcha extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      captcha: {}
+    }
   }
   loadCaptcha() {
-    grecaptcha.render(this.props.elementID, {
+    const captcha = grecaptcha.render(this.props.elementID, {
       "sitekey": this.props.sitekey,
       "callback": this.props.verifyCallback,
       "expired-callback": this.props.expiredCallback,
@@ -13,6 +16,7 @@ class Recaptcha extends React.Component {
       "type": this.props.type,
       "size": this.props.size
     });
+    this.setState({ captcha });
   }
   componentDidMount() {
     if (typeof grecaptcha !== "undefined") {
@@ -27,8 +31,19 @@ class Recaptcha extends React.Component {
     }
   }
   componentWillUnmount() {
+    this.resetCaptcha();
+  }
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.reset){
+      this.resetCaptcha();
+    }
+  }
+  resetCaptcha() {
     if (typeof grecaptcha !== "undefined") {
-      grecaptcha.reset();
+      grecaptcha.reset(this.state.captcha);
+      if(this.props.resetCallback) {
+        this.props.resetCallback();
+      }
     }
   }
   render() {
@@ -38,16 +53,18 @@ class Recaptcha extends React.Component {
   }
 };
 Recaptcha.propTypes  = {
-  sitekey: React.PropTypes.string,
-  elementID: React.PropTypes.string,
-  onloadCallbackName: React.PropTypes.string,
-  onloadCallback: React.PropTypes.func,
-  verifyCallback: React.PropTypes.func,
-  render: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  type: React.PropTypes.string,
-  size: React.PropTypes.string,
-  expiredCallback: React.PropTypes.func
+  sitekey: PropTypes.string,
+  elementID: PropTypes.string,
+  onloadCallbackName: PropTypes.string,
+  onloadCallback: PropTypes.func,
+  verifyCallback: PropTypes.func,
+  render: PropTypes.string,
+  theme: PropTypes.string,
+  type: PropTypes.string,
+  size: PropTypes.string,
+  expiredCallback: PropTypes.func,
+  reset: PropTypes.bool,
+  resetCallback: PropTypes.func
 };
 
 Recaptcha.defaultProps = {
@@ -56,6 +73,8 @@ Recaptcha.defaultProps = {
   onloadCallbackName: "recaptchaLoaded",
   verifyCallback: undefined,
   expiredCallback: undefined,
+  resetCallback: undefined,
+  reset: undefined,
   render: "explicit",
   theme: "light",
   type: "image",
