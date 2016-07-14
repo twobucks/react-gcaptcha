@@ -41,9 +41,6 @@ class Recaptcha extends React.Component {
   resetCaptcha() {
     if (typeof grecaptcha !== "undefined") {
       grecaptcha.reset(this.state.captcha);
-      if(this.props.resetCallback) {
-        this.props.resetCallback();
-      }
     }
   }
   render() {
@@ -63,8 +60,7 @@ Recaptcha.propTypes  = {
   type: PropTypes.string,
   size: PropTypes.string,
   expiredCallback: PropTypes.func,
-  reset: PropTypes.bool,
-  resetCallback: PropTypes.func
+  reset: PropTypes.bool
 };
 
 Recaptcha.defaultProps = {
@@ -73,7 +69,6 @@ Recaptcha.defaultProps = {
   onloadCallbackName: "recaptchaLoaded",
   verifyCallback: undefined,
   expiredCallback: undefined,
-  resetCallback: undefined,
   reset: undefined,
   render: "explicit",
   theme: "light",

@@ -73,9 +73,6 @@ var Recaptcha = function (_React$Component) {
     value: function resetCaptcha() {
       if (typeof grecaptcha !== "undefined") {
         grecaptcha.reset(this.state.captcha);
-        if (this.props.resetCallback) {
-          this.props.resetCallback();
-        }
       }
     }
   }, {
@@ -100,8 +97,7 @@ Recaptcha.propTypes = {
   type: _react.PropTypes.string,
   size: _react.PropTypes.string,
   expiredCallback: _react.PropTypes.func,
-  reset: _react.PropTypes.bool,
-  resetCallback: _react.PropTypes.func
+  reset: _react.PropTypes.bool
 };
 
 Recaptcha.defaultProps = {
@@ -110,7 +106,6 @@ Recaptcha.defaultProps = {
   onloadCallbackName: "recaptchaLoaded",
   verifyCallback: undefined,
   expiredCallback: undefined,
-  resetCallback: undefined,
   reset: undefined,
   render: "explicit",
   theme: "light",
