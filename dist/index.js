@@ -14,13 +14,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Recaptcha = function (_React$Component) {
-  _inherits(Recaptcha, _React$Component);
+var Recaptcha = function (_Component) {
+  _inherits(Recaptcha, _Component);
 
   function Recaptcha(props) {
     _classCallCheck(this, Recaptcha);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Recaptcha).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Recaptcha.__proto__ || Object.getPrototypeOf(Recaptcha)).call(this, props));
 
     _this.state = {
       captcha: {}
@@ -83,7 +83,7 @@ var Recaptcha = function (_React$Component) {
   }]);
 
   return Recaptcha;
-}(_react2.default.Component);
+}(_react.Component);
 
 ;
 Recaptcha.propTypes = {

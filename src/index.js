@@ -1,5 +1,5 @@
-import { default as React, PropTypes } from "react";
-class Recaptcha extends React.Component {
+import React, { Component, PropTypes } from "react";
+class Recaptcha extends Component {
   constructor(props) {
     super(props);
     this.state = {
