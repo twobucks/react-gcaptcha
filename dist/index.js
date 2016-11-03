@@ -64,7 +64,7 @@ var Recaptcha = function (_Component) {
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.reset) {
+      if (this.props.reset !== nextProps.reset && nextProps.reset) {
         this.resetCaptcha();
       }
     }
