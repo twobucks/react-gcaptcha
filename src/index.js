@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 class Recaptcha extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +36,7 @@ class Recaptcha extends Component {
     this.resetCaptcha();
   }
   componentWillReceiveProps(nextProps) {
-    if(this.props.reset !== (nextProps.reset && nextProps.reset)){
+    if(this.props.reset !== nextProps.reset && nextProps.reset){
       this.resetCaptcha();
     }
   }
