@@ -6,6 +6,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87,17 +91,17 @@ var Recaptcha = function (_Component) {
 
 ;
 Recaptcha.propTypes = {
-  sitekey: _react.PropTypes.string,
-  elementID: _react.PropTypes.string,
-  onloadCallbackName: _react.PropTypes.string,
-  onloadCallback: _react.PropTypes.func,
-  verifyCallback: _react.PropTypes.func,
-  render: _react.PropTypes.string,
-  theme: _react.PropTypes.string,
-  type: _react.PropTypes.string,
-  size: _react.PropTypes.string,
-  expiredCallback: _react.PropTypes.func,
-  reset: _react.PropTypes.bool
+  sitekey: _propTypes2.default.string,
+  elementID: _propTypes2.default.string,
+  onloadCallbackName: _propTypes2.default.string,
+  onloadCallback: _propTypes2.default.func,
+  verifyCallback: _propTypes2.default.func,
+  render: _propTypes2.default.string,
+  theme: _propTypes2.default.string,
+  type: _propTypes2.default.string,
+  size: _propTypes2.default.string,
+  expiredCallback: _propTypes2.default.func,
+  reset: _propTypes2.default.bool
 };
 
 Recaptcha.defaultProps = {
