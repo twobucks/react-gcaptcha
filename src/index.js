@@ -65,7 +65,7 @@ Recaptcha.propTypes  = {
   type: PropTypes.string,
   size: PropTypes.string,
   expiredCallback: PropTypes.func,
-  reset: PropTypes.bool
+  reset: PropTypes.number
 };
 
 Recaptcha.defaultProps = {
@@ -75,7 +75,7 @@ Recaptcha.defaultProps = {
   verifyCallback: undefined,
   expiredCallback: undefined,
   clsName: undefined,
-  reset: undefined,
+  reset: 0,
   render: "explicit",
   theme: "light",
   type: "image",

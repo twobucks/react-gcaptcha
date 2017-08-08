@@ -104,7 +104,7 @@ Recaptcha.propTypes = {
   type: _propTypes2.default.string,
   size: _propTypes2.default.string,
   expiredCallback: _propTypes2.default.func,
-  reset: _propTypes2.default.bool
+  reset: _propTypes2.default.number
 };
 
 Recaptcha.defaultProps = {
@@ -114,7 +114,7 @@ Recaptcha.defaultProps = {
   verifyCallback: undefined,
   expiredCallback: undefined,
   clsName: undefined,
-  reset: undefined,
+  reset: 0,
   render: "explicit",
   theme: "light",
   type: "image",

@@ -83,7 +83,7 @@ React.render(
 * `theme`(default `light`) - it can be `light` or `dark`
 * `type`(default `image`) - it can be `image` or `audio`
 * `render`(default `explicit`) - Whether to render the widget explicitly. But it can be set to `onload`
-* `reset` (default `false`) - If set to true, it reset the gcaptcha
+* `reset` (default `0`) - Just increment the number to reset the gcaptcha (Each time you change the number it resets the gcaptcha)
 
 ## TODO
 * Add auto language detection
