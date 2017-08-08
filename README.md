@@ -74,6 +74,7 @@ React.render(
 
 * `sitekey`required - Google reCAPTCHA site key
 * `elementID`(default `g-recaptcha`) - string to be used as a div ID
+* `clsName` - className that gets applied to the parrent div
 * `onloadCallback`- function to be called after recaptcha loaded
 * `onloadCallbackName`(default `recaptchaLoaded`) - name of the global function that will be called after script loads
 * `verifyCallback`- function to be called after successful reCAPTCHA validation

@@ -82,7 +82,10 @@ var Recaptcha = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement("div", { id: this.props.elementID });
+      return _react2.default.createElement("div", {
+        className: this.props.clsName,
+        id: this.props.elementID
+      });
     }
   }]);
 
@@ -110,6 +113,7 @@ Recaptcha.defaultProps = {
   onloadCallbackName: "recaptchaLoaded",
   verifyCallback: undefined,
   expiredCallback: undefined,
+  clsName: undefined,
   reset: undefined,
   render: "explicit",
   theme: "light",

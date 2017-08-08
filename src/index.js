@@ -47,7 +47,10 @@ class Recaptcha extends Component {
   }
   render() {
     return (
-      <div id={this.props.elementID}></div>
+      <div
+        className={this.props.clsName}
+        id={this.props.elementID}
+      ></div>
     );
   }
 };
@@ -71,6 +74,7 @@ Recaptcha.defaultProps = {
   onloadCallbackName: "recaptchaLoaded",
   verifyCallback: undefined,
   expiredCallback: undefined,
+  clsName: undefined,
   reset: undefined,
   render: "explicit",
   theme: "light",
