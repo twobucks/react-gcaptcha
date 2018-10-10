@@ -1,6 +1,6 @@
 {
   "name": "react-gcaptcha",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "description": "A react.js google reCAPTCHA component",
   "main": "dist/index.js",
   "scripts": {
