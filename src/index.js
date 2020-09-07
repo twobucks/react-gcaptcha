@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class Recaptcha extends Component {
   constructor(props) {
@@ -53,19 +52,6 @@ class Recaptcha extends Component {
       ></div>
     );
   }
-};
-Recaptcha.propTypes  = {
-  sitekey: PropTypes.string,
-  elementID: PropTypes.string,
-  onloadCallbackName: PropTypes.string,
-  onloadCallback: PropTypes.func,
-  verifyCallback: PropTypes.func,
-  render: PropTypes.string,
-  theme: PropTypes.string,
-  type: PropTypes.string,
-  size: PropTypes.string,
-  expiredCallback: PropTypes.func,
-  reset: PropTypes.number
 };
 
 Recaptcha.defaultProps = {
