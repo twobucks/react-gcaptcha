@@ -34,8 +34,8 @@ class Recaptcha extends Component {
   componentWillUnmount() {
     this.resetCaptcha();
   }
-  componentWillReceiveProps(nextProps) {
-    if(this.props.reset !== nextProps.reset && nextProps.reset){
+  componentDidUpdate(prevProps) {
+    if(this.props.reset !== prevProps.reset && this.props.reset){
       this.resetCaptcha();
     }
   }
